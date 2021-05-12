@@ -11,9 +11,9 @@ defmodule GesconWeb.Router do
     # resources "/condominios", CondominioController, except: [:new, :edit]
   end
 
-  scope "api/admin",  GesconWeb.Admin do
+  scope "/api/admin", GesconWeb.Admin, as: :admin do
 
-    resources "/condominios", GesconWeb.Admin.CondominioController, except: [:new, :edit]
+    resources "/condominios", CondominioController, except: [:new, :edit]
 
   end
 
