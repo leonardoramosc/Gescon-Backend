@@ -18,6 +18,11 @@ config :gescon, GesconWeb.Endpoint,
   pubsub_server: Gescon.PubSub,
   live_view: [signing_salt: "nVtLdpug"]
 
+# Guardian config
+config :gescon, Gescon.Guardian,
+  issuer: "gescon",
+  secret_key: "QDmDB2SJkchLoZN26mNS3SgrQuSHWqiVhdpX1EA4wFKfmfQjUMH+WLwbvhpJ8nUe"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
