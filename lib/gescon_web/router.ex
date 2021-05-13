@@ -10,7 +10,7 @@ defmodule GesconWeb.Router do
   scope "/api", GesconWeb do
     pipe_through :api
 
-    post "/sign_in", UserController, :sign_in
+    post "users/sign_in", UserController, :sign_in
 
 
     # resources "/condominios", CondominioController, except: [:new, :edit]
@@ -19,6 +19,7 @@ defmodule GesconWeb.Router do
   scope "/api/admin", GesconWeb.Admin, as: :admin do
     pipe_through :api
 
+    resources "/users", UserController, except: [:new, :edit]
     # resources "/condominios", CondominioController, except: [:new, :edit]
 
   end
