@@ -7,6 +7,7 @@ defmodule Gescon.Accounts do
   alias Gescon.Repo
 
   alias Gescon.Accounts.User
+  alias Gescon.Accounts.Role
 
   alias Gescon.Auth.Guardian
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
@@ -141,5 +142,28 @@ defmodule Gescon.Accounts do
   """
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
+  end
+
+  #####################################################################################
+  # ROLES
+  #####################################################################################
+  def list_roles() do
+    Repo.all(Role)
+  end
+
+  def create_role(attrs \\ %{}) do
+    %Role{}
+    |> Role.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_role(%Role{} = user, attrs) do
+    user
+    |> Role.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_roler(%Role{} = user) do
+    Repo.delete(user)
   end
 end

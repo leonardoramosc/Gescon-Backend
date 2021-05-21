@@ -10,13 +10,14 @@ defmodule Gescon.Accounts.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
+    belongs_to :role, Gescon.Accounts.Role
     timestamps()
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :role_id])
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
     |> validate_format(:email, ~r/@/)
