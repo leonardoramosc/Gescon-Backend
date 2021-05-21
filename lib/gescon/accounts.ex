@@ -8,7 +8,7 @@ defmodule Gescon.Accounts do
 
   alias Gescon.Accounts.User
 
-  alias Gescon.Guardian
+  alias Gescon.Auth.Guardian
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   @doc """

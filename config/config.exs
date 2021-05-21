@@ -19,7 +19,7 @@ config :gescon, GesconWeb.Endpoint,
   live_view: [signing_salt: "nVtLdpug"]
 
 # Guardian config
-config :gescon, Gescon.Guardian,
+config :gescon, Gescon.Auth.Guardian,
   issuer: "gescon",
   secret_key: "QDmDB2SJkchLoZN26mNS3SgrQuSHWqiVhdpX1EA4wFKfmfQjUMH+WLwbvhpJ8nUe"
 

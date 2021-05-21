@@ -1,4 +1,4 @@
-defmodule Gescon.Guardian do
+defmodule Gescon.Auth.Guardian do
   use Guardian, otp_app: :gescon
 
   alias Gescon.Accounts

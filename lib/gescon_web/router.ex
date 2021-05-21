@@ -4,20 +4,24 @@ defmodule GesconWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
     plug :fetch_session
+  end
+
+  pipeline :api_auth do
     plug Gescon.Auth.Pipeline
+    plug Guardian.Plug.EnsureAuthenticated
   end
 
   scope "/api", GesconWeb do
     pipe_through :api
 
-    post "users/sign_in", UserController, :sign_in
+    post "/users/sign_in", UserController, :sign_in
 
 
     # resources "/condominios", CondominioController, except: [:new, :edit]
   end
 
   scope "/api/admin", GesconWeb.Admin, as: :admin do
-    pipe_through :api
+    pipe_through [:api, :api_auth]
 
     resources "/users", UserController, except: [:new, :edit]
     # resources "/condominios", CondominioController, except: [:new, :edit]
