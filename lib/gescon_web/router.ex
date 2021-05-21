@@ -24,6 +24,7 @@ defmodule GesconWeb.Router do
     pipe_through [:api, :api_auth]
 
     resources "/users", UserController, except: [:new, :edit]
+    resources "/roles", RoleController, except: [:new, :edit]
     # resources "/condominios", CondominioController, except: [:new, :edit]
 
   end
