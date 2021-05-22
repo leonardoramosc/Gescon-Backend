@@ -11,6 +11,10 @@ defmodule GesconWeb.Router do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
+  pipeline :superuser do
+    plug Gescon.Auth.Authorization, allowed_roles: [1]
+  end
+
   scope "/api", GesconWeb do
     pipe_through :api
 
@@ -21,7 +25,7 @@ defmodule GesconWeb.Router do
   end
 
   scope "/api/admin", GesconWeb.Admin, as: :admin do
-    pipe_through [:api, :api_auth]
+    pipe_through [:api, :api_auth, :superuser]
 
     resources "/users", UserController, except: [:new, :edit]
     resources "/roles", RoleController, except: [:new, :edit]
