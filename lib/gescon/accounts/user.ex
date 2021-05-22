@@ -11,6 +11,7 @@ defmodule Gescon.Accounts.User do
     field :password_hash, :string
 
     belongs_to :role, Gescon.Accounts.Role
+    has_one :administrator, Gescon.Entity.Administrator
     timestamps()
   end
 
