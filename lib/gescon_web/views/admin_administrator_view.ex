@@ -13,6 +13,7 @@ defmodule GesconWeb.Admin.AdministratorView do
 
   def render("administrator.json", %{administrator: admin}) do
     %{
+      id: admin.id,
       address: admin.address,
       city: admin.city,
       country: admin.country,
