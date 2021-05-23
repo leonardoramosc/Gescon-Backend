@@ -5,6 +5,10 @@ defmodule GesconWeb.Admin.AdministratorView do
     %{administrators: render_many(administrators, __MODULE__, "administrator.json")}
   end
 
+  def render("show.json", %{administrator: admin}) do
+    render("administrator.json", %{administrator: admin})
+  end
+
   def render("administrator.json", %{administrator: admin}) do
     %{
       address: admin.address,

@@ -8,4 +8,12 @@ defmodule GesconWeb.Admin.AdministratorController do
 
     render(conn, "index.json", administrators: administrators)
   end
+
+  def create(conn, params) do
+    {:ok, administrator} = Entity.create_administrator(params)
+
+    conn
+    |> put_status(:created)
+    |> render("show.json", administrator: administrator)
+  end
 end
