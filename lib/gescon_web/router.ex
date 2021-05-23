@@ -29,6 +29,7 @@ defmodule GesconWeb.Router do
 
     resources "/users", UserController, except: [:new, :edit]
     resources "/roles", RoleController, except: [:new, :edit]
+    resources "/administrators", AdministratorController, except: [:new, :edit]
     # resources "/condominios", CondominioController, except: [:new, :edit]
 
   end
