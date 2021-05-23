@@ -37,7 +37,11 @@ defmodule Gescon.Entity do
       ** (Ecto.NoResultsError)
 
   """
-  def get_administrator!(id), do: Repo.get!(Administrator, id)
+  def get_administrator!(id) do
+    Administrator
+    |> Repo.get!(id)
+    |> Repo.preload(:user)
+  end
 
   @doc """
   Creates a administrator.
