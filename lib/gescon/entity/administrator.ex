@@ -20,6 +20,6 @@ defmodule Gescon.Entity.Administrator do
   def changeset(administrator, attrs) do
     administrator
     |> cast(attrs, [:name, :rif, :phone_1, :phone_2, :email, :country, :city, :address, :user_id])
-    |> validate_required([:name, :rif, :phone_1, :phone_2, :email, :country, :city, :address, :user_id])
+    |> validate_required([:name, :rif, :phone_1, :email, :country, :city, :address, :user_id])
   end
 end
