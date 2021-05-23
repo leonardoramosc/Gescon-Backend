@@ -30,4 +30,12 @@ defmodule GesconWeb.Admin.AdministratorController do
       render(conn, "show.json", administrator: admin)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    admin = Entity.get_administrator!(id)
+
+    with {:ok, %Entity.Administrator{}} <- Entity.delete_administrator(admin) do
+      send_resp(conn, :no_content, "")
+    end
+  end
 end
