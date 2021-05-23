@@ -18,7 +18,9 @@ defmodule Gescon.Entity do
 
   """
   def list_administrators do
-    Repo.all(Administrator)
+    Administrator
+    |> Repo.all()
+    |> Repo.preload(:user)
   end
 
   @doc """

@@ -11,8 +11,8 @@ defmodule Gescon.Entity.Administrator do
     field :phone_1, :string
     field :phone_2, :string
     field :rif, :string
-    field :user_id, :id
 
+    belongs_to :user, Gescon.Accounts.User
     timestamps()
   end
 

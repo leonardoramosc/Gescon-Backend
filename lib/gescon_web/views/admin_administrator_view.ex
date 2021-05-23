@@ -1,6 +1,8 @@
 defmodule GesconWeb.Admin.AdministratorView do
   use GesconWeb, :view
 
+  alias GesconWeb.Admin.UserView
+
   def render("index.json", %{administrators: administrators}) do
     %{administrators: render_many(administrators, __MODULE__, "administrator.json")}
   end
@@ -19,7 +21,9 @@ defmodule GesconWeb.Admin.AdministratorView do
       phone_1: admin.phone_1,
       phone_2: admin.phone_2,
       rif: admin.rif,
-      user_id: admin.user_id
+      user: (
+        if Ecto.assoc_loaded?(admin.user), do: render_one(admin.user, UserView, "user.json"), else: nil
+      )
     }
   end
 end
