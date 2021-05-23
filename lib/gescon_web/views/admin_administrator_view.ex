@@ -15,6 +15,7 @@ defmodule GesconWeb.Admin.AdministratorView do
     %{
       id: admin.id,
       address: admin.address,
+      state: admin.state,
       city: admin.city,
       country: admin.country,
       email: admin.email,
