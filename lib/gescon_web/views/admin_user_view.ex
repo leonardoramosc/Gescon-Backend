@@ -19,7 +19,6 @@ defmodule GesconWeb.Admin.UserView do
       role: (
         if Ecto.assoc_loaded?(user.role), do: render_one(user.role, RoleView, "role.json"), else: nil
       )
-      # documents: (if Ecto.assoc_loaded?(user.documents), do: render_many(user.documents, DocumentView, "document.json"), else: nil),
     }
   end
 
