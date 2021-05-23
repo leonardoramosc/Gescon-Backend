@@ -22,4 +22,12 @@ defmodule GesconWeb.Admin.AdministratorController do
     |> put_status(:created)
     |> render("show.json", administrator: administrator)
   end
+
+  def update(conn, %{"id" => id} = params) do
+    admin = Entity.get_administrator!(id)
+
+    with {:ok, %Entity.Administrator{} = admin} <- Entity.update_administrator(admin, params) do
+      render(conn, "show.json", administrator: admin)
+    end
+  end
 end
